@@ -18,7 +18,7 @@ services:
       - SECRET_KEY=RandomSecretKeyHere
       - FILE_WATCHER=true
     volumes:
-      - "./datasets:/datasets"
+      - "./../AzureCustomVision/src/Azure/CustomVision:/datasets"
       - "./models:/models"
     depends_on:
       - database
@@ -29,7 +29,7 @@ services:
     container_name: annotator_workers
     image: jsbroks/coco-annotator:workers-stable
     volumes:
-      - "./datasets:/datasets"
+      - "./../AzureCustomVision/src/Azure/CustomVision:/datasets"
     depends_on:
       - messageq
       - database
